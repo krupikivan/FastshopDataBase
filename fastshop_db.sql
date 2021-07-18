@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 20, 2021 at 04:22 AM
+-- Generation Time: Jul 19, 2021 at 12:38 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.3.27
 
@@ -296,8 +296,7 @@ CREATE TABLE `listados` (
 
 INSERT INTO `listados` (`idListado`, `fechaCobro`, `fechaCompra`, `fechaCreacion`, `idCliente`) VALUES
 (11, '2021-05-02 00:00:00.000000', '2021-05-02 00:00:00.000000', '2021-05-02 00:00:00.000000', 4),
-(12, '2021-05-02 00:00:00.000000', '2021-05-02 00:00:00.000000', '2021-05-02 00:00:00.000000', 4),
-(13, '2021-05-03 00:00:00.000000', '2021-05-03 00:00:00.000000', '2021-05-03 00:00:00.000000', 4);
+(12, '2021-05-02 00:00:00.000000', '2021-05-02 00:00:00.000000', '2021-05-02 00:00:00.000000', 4);
 
 -- --------------------------------------------------------
 
@@ -321,8 +320,7 @@ CREATE TABLE `listadoxconsumidor` (
 
 INSERT INTO `listadoxconsumidor` (`IdListadoxCliente`, `fechaCobro`, `fechaCompra`, `fechaCreacion`, `idCliente`, `idListado`, `nombre`) VALUES
 (11, '2021-05-02 00:00:00.000000', '2021-05-02 00:00:00.000000', '2021-05-02 00:00:00.000000', 4, 11, 'Merienda'),
-(12, '2021-05-02 00:00:00.000000', '2021-05-02 00:00:00.000000', '2021-05-02 00:00:00.000000', 4, 12, 'Desayuno viernes'),
-(13, '2021-05-03 00:00:00.000000', '2021-05-03 00:00:00.000000', '2021-05-03 00:00:00.000000', 4, 13, 'Domingo Camping');
+(12, '2021-05-02 00:00:00.000000', '2021-05-02 00:00:00.000000', '2021-05-02 00:00:00.000000', 4, 12, 'Desayuno viernes');
 
 -- --------------------------------------------------------
 
@@ -347,13 +345,7 @@ INSERT INTO `listadoxproductos` (`idListadoxProducto`, `cant`, `escaneado`, `idC
 (31, 1, b'0', 40, 11),
 (32, 1, b'0', 39, 11),
 (33, 1, b'0', 53, 12),
-(34, 1, b'0', 41, 12),
-(35, 1, b'0', 65, 13),
-(36, 1, b'0', 53, 13),
-(37, 1, b'0', 55, 13),
-(38, 1, b'0', 39, 13),
-(39, 1, b'0', 57, 13),
-(40, 1, b'0', 59, 13);
+(34, 1, b'0', 41, 12);
 
 -- --------------------------------------------------------
 
@@ -378,6 +370,26 @@ INSERT INTO `marcas` (`IdMarca`, `Nombre`) VALUES
 (16, 'Coca Cola'),
 (17, 'Geau'),
 (18, 'Blem');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notificaciones`
+--
+
+CREATE TABLE `notificaciones` (
+  `NotificacionesId` int(11) NOT NULL,
+  `Cuerpo` varchar(150) NOT NULL,
+  `Titulo` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `notificaciones`
+--
+
+INSERT INTO `notificaciones` (`NotificacionesId`, `Cuerpo`, `Titulo`) VALUES
+(5, 'Cuertpo', 'Titulo'),
+(6, 'New body', 'New title');
 
 -- --------------------------------------------------------
 
@@ -673,6 +685,12 @@ ALTER TABLE `marcas`
   ADD PRIMARY KEY (`IdMarca`);
 
 --
+-- Indexes for table `notificaciones`
+--
+ALTER TABLE `notificaciones`
+  ADD PRIMARY KEY (`NotificacionesId`);
+
+--
 -- Indexes for table `productos`
 --
 ALTER TABLE `productos`
@@ -785,6 +803,12 @@ ALTER TABLE `listadoxproductos`
 --
 ALTER TABLE `marcas`
   MODIFY `IdMarca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `notificaciones`
+--
+ALTER TABLE `notificaciones`
+  MODIFY `NotificacionesId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `productos`
