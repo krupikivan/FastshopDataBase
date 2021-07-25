@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 19, 2021 at 12:38 AM
+-- Generation Time: Jul 25, 2021 at 07:38 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.3.27
 
@@ -383,14 +383,6 @@ CREATE TABLE `notificaciones` (
   `Titulo` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `notificaciones`
---
-
-INSERT INTO `notificaciones` (`NotificacionesId`, `Cuerpo`, `Titulo`) VALUES
-(5, 'Cuertpo', 'Titulo'),
-(6, 'New body', 'New title');
-
 -- --------------------------------------------------------
 
 --
@@ -456,16 +448,19 @@ CREATE TABLE `promocionxproducto` (
   `IdCategoriaFK` int(11) DEFAULT NULL,
   `IdProductoFK` int(11) DEFAULT NULL,
   `IdTipoPromocionFK` int(11) NOT NULL,
-  `Stock` double NOT NULL
+  `Stock` double NOT NULL,
+  `Prioridad` int(125) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `promocionxproducto`
 --
 
-INSERT INTO `promocionxproducto` (`IdPromocion`, `FechaFin`, `FechaInicio`, `IdCategoriaFK`, `IdProductoFK`, `IdTipoPromocionFK`, `Stock`) VALUES
-(33, '2021-05-12 00:00:00.000000', '2021-05-02 00:00:00.000000', NULL, 5, 2, 1),
-(38, '2021-06-02 00:00:00.000000', '2021-05-02 00:00:00.000000', NULL, 12, 2, 10);
+INSERT INTO `promocionxproducto` (`IdPromocion`, `FechaFin`, `FechaInicio`, `IdCategoriaFK`, `IdProductoFK`, `IdTipoPromocionFK`, `Stock`, `Prioridad`) VALUES
+(39, '2021-08-16 00:00:00.000000', '2021-07-18 00:00:00.000000', NULL, 4, 2, 10, 3),
+(40, '2021-08-10 00:00:00.000000', '2021-07-19 00:00:00.000000', NULL, 12, 2, 2, 1),
+(41, '2021-08-20 00:00:00.000000', '2021-07-19 00:00:00.000000', NULL, 10, 2, 4, 0),
+(42, '2021-08-05 00:00:00.000000', '2021-07-13 00:00:00.000000', NULL, 7, 2, 1, 7);
 
 -- --------------------------------------------------------
 
@@ -808,7 +803,7 @@ ALTER TABLE `marcas`
 -- AUTO_INCREMENT for table `notificaciones`
 --
 ALTER TABLE `notificaciones`
-  MODIFY `NotificacionesId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `NotificacionesId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `productos`
@@ -826,7 +821,7 @@ ALTER TABLE `promocion`
 -- AUTO_INCREMENT for table `promocionxproducto`
 --
 ALTER TABLE `promocionxproducto`
-  MODIFY `IdPromocion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `IdPromocion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `tipos`
